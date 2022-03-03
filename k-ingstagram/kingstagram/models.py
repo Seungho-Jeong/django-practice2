@@ -25,7 +25,7 @@ class Post(TimeStampedModel):
         return self.caption
 
     def get_absolute_url(self):
-        return reverse("", kwargs={"pk": self.pk})
+        return reverse("kingstagram:post_detail", kwargs={"pk": self.pk})
 
     def extract_tag_list(self):
         tag_name_list = re.findall(r"#([a-zA-Z\dㄱ-힣]+)", self.caption)
@@ -37,6 +37,15 @@ class Post(TimeStampedModel):
 
     def is_like_user(self, user):
         return self.like_user_set.filter(pk=user.pk).exists()
+
+    class Meta:
+        ordering = ['-id']
+
+
+class Comment(TimeStampedModel):
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    message = models.TextField()
 
     class Meta:
         ordering = ['-id']

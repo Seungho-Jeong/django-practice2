@@ -27,6 +27,7 @@
       <list>
         <option value="$MODULE_DIR$/config/templates" />
         <option value="$MODULE_DIR$/accounts/templates" />
+        <option value="$MODULE_DIR$/kingstagram/templates" />
       </list>
     </option>
   </component>

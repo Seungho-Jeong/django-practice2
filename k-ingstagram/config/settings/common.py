@@ -45,8 +45,10 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'bootstrap4',
     'django_pydenticon',
+    'easy_thumbnails',
     # Local Apps
     'accounts',
+    'kingstagram',
 ]
 
 MIDDLEWARE = [
@@ -114,7 +116,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-AUTH_USER_MODEL = 'accounts.User'
+AUTH_USER_MODEL = "accounts.User"
+LOGIN_REDIRECT_URL = "/"
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/

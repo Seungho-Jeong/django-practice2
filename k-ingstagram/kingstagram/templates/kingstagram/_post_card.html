@@ -1,3 +1,5 @@
+{% load kingstagram_tags %}
+
 <div class="card">
     <div class="card-header">
         <img src="{{ post.author.avatar_url }}" alt="" style="width: 32px; height: 32px;" class="mr-2"/>
@@ -7,12 +9,21 @@
     </div>
     <div class="card-body">
         <img src="{{ post.photo.url }}" alt="" style="width: 100%;"/>
-    </div>
-    <div class="card-footer">
         {% for tag in post.tag_set.all %}
             <span class="badge badge-primary">
                 #{{ tag.name }}
             </span>
         {% endfor %}
+    </div>
+    <div class="card-footer">
+        {% if post|is_like_user:user %}
+            <a href="{% url 'kingstagram:post_unlike' post.pk %}" style="color: inherit;">
+                <i class="fa fa-heart"></i>
+            </a>
+        {% else %}
+            <a href="{% url 'kingstagram:post_like' post.pk %}" style="color: inherit;">
+                <i class="fa fa-heart-o"></i>
+            </a>
+        {% endif %}
     </div>
 </div>

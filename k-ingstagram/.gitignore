@@ -1,5 +1,9 @@
 __pycache__
 db.sqlite3
+my_settings.py
 /static
 /media
-.ideasendgrid.env
+.idea
+.DS_Store
+sendgrid.env
+dockerfile

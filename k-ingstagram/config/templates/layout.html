@@ -56,7 +56,11 @@
                             </svg>
                         </a>
                         <a class="p-2 text-dark" href="{% url 'accounts:edit_profile' %}">
-                            <img src="{{ user.avatar_url }}" alt="" style="width: 24px; height: 24px;"/>
+                            {% if user.avatar_url %}
+                                <img src="{{ user.avatar_url }}" alt="" style="width: 24px; height: 24px;"/>
+                            {% else %}
+                                <img src="https://freesvg.org/img/abstract-user-flat-4.png" alt="" style="width: 24px; height: 24px;">
+                            {% endif %}
                         </a>
                     </nav>
                 </div>
@@ -73,7 +77,7 @@
         <footer class="pt-4 my-md-5 pt-md-5">
             <div class="row">
                 <div class="col-12 col-md">
-                    <img class="mb-2" src="/docs/4.4/assets/brand/bootstrap-solid.svg" alt="" width="24" height="24">
+                    <img class="mb-2" src="https://getbootstrap.com/docs/5.1/assets/brand/bootstrap-logo.svg" alt="" width="24" height="24">
                     <small class="d-block mb-3 text-muted">© 2022</small>
                 </div>
                 <div class="col-6 col-md">
